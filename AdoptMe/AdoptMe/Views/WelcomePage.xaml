@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="AdoptMe.Views.WelcomePage">
+    <ContentPage.Content>
+        <StackLayout  >
+           <controls:CarouselViewControl WidthRequest="300" HeightRequest="300" 
+                                         BackgroundColor="Transparent"
+                                         Orientation="Horizontal"
+                                         VerticalOptions="FillAndExpand"
+                                         HorizontalOptions="FillAndExpand" 
+                                         ShowIndicators="true"
+                                         AnimateTransition="true" 
+                                         ItemsSource="{Binding WelcomeImageList}"
+                                         Position="{Binding CarouselPlansPositionLounge,Mode=TwoWay}"
+                                         
+                                         >
+                <controls:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                        <Label Text="Text"/>
+                <!-- <Image Source="{Binding BusinessPlanImages}"> </Image>-->
+                    </DataTemplate>
+                </controls:CarouselViewControl.ItemTemplate>
+            </controls:CarouselViewControl>
+              <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10,15,10,15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="InformationLabel" Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       Text="{Binding InformationLabelText}" 
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
+                       Margin="20,0,20,0" 
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
